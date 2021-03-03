@@ -1,0 +1,252 @@
+﻿@model WebApplication.Models.FlowersResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Главная страница</title>
+
+    <style>
+        /* Header */
+        .header {
+            width: 100%;
+            padding-top: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: black;
+        }
+
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo {
+            margin-left: 15px;
+            font-size: 50px;
+            color: #fff;
+        }
+
+
+        /* Nav */
+        .nav {
+            align-items: center;
+            font-size:19px;
+            text-transform: uppercase;
+        }
+
+        .nav__link {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 15px;
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+            transition: color .1s linear;
+        }
+
+        .nav__link:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: #fce38a;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            transition: .1s linear;
+        }
+
+        .nav__link:hover {
+            color: #fce38a;
+        }
+
+        .b-img-radius {
+            border-radius: 10px;
+        }
+
+        .colortext {
+            color: green;
+        }
+
+        .colortext1 {
+            color: black;
+        }
+
+        #theImage {
+            visibility: hidden;
+        }
+
+        #logo {
+            background: #1764ff;
+            background-image: url(makro.jpg);
+            height: 22%;
+            width: 95%;
+        }
+
+        #or {
+            background: #f4aa42;
+            margin-left: 6px;
+            height: 20px;
+            width: 8px;
+            margin-top: 4px;
+            float: left;
+            padding: 2px;
+        }
+
+        #ouu {
+            margin-left: -3px;
+            height: 24px;
+            width: 202px;
+            margin-top: 3px;
+            float: left;
+            padding: 1px;
+        }
+
+        #oii {
+            margin-left: 11px;
+            height: 20px;
+            width: 300px;
+            margin-top: -24px;
+            float: left;
+            padding: 1px;
+        }
+
+        #polproz {
+            background: rgba(255,255,255,0.5);
+            margin-top: 32px;
+            height: 43px;
+            width: 95%;
+        }
+
+        #menu {
+            background: #FFFFFF;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #text {
+            width: 100%;
+            margin: 60px 0;
+            position: absolute;
+            min-height: 790px;
+            background: url("../../Content/images/25.jpg") center no-repeat;
+            background-size: 100% 100%;
+            float: left;
+        }
+
+        #tabli {
+            background: #FFFFFF;
+            margin-top: -120px;
+            height: 45px;
+            width: 250px;
+            margin-left: 5px;
+        }
+
+
+        td, tr {
+            border: 2px solid;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        A {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+
+
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">Мир цветов</div>
+
+                <nav class="nav">
+                    <a class="nav__link" href="Index">Главная страница</a>
+                    <a class="nav__link" href="Form">Оформление заказа</a>
+                    <a class="nav__link" href="Bouquets">Каталог товаров</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+        <!--<div id=menu>
+        <a>
+            <h4>@Html.ActionLink("Добавление", "AddForm") </h4>
+        </a>
+        <a>
+            <h4>@Html.ActionLink("Просмотр", "AddForm") </h4>
+        </a>
+        <a>
+            <h4>@Html.ActionLink("Поиск", "AddForm") </h4>
+        </a>-->
+        <!--<a href="prosmotr.php"> <img src="../../Content/images/2.jpg" width="150px" height="150px"></a><h4> <span class="colortext1"> Просмотр</span></h4>-->
+        <!--<a href="poisk.html"> <img src="../../Content/images/4.jpg" width="150px" height="150px"></a><h4> <span class="colortext1"> Поиск</span></h4>-->
+
+    
+
+    <div id=text class="perenos">
+        <p align="left">
+            <a>
+                <font size="10" color="Crimson" face="Arial">
+                    <i>Принимаем заказы на 8 марта.</i><br><br>
+                </font>
+
+                <font size="5" color="black" face="Arial">
+                    До 8 марта — самого прекрасного весеннего праздника — ровно неделя. <br />
+                    Самое время подумать о цветочных подарках, чтобы порадовать своих родных и близких, <br />
+                    друзей и коллег. «Мир цветов» принимает заказы на праздничные букеты, <br />
+                    композиции и любые другие цветочные подарки.<br><br>
+                </font>
+                <font size="10" color="Crimson" face="Arial">
+                   <i> Букеты.</i><br><br>
+                </font>
+
+                <font size="5" color="black" face="Arial">
+                    На витрине нашего магазина — разнообразие готовых букетов, от небольших типовых до изысканных <br />
+                    и оригинальных. На заказ наши флористы готовы оформить букет с учетом ваших пожеланий,<br />
+                    наилучшим образом подходящий для вашего поздравления с 8 марта.<br><br>
+                </font>
+                <font size="10" color="Crimson" face="Arial">
+                  <i> Цветочные композиции.</i><br><br>
+                </font>
+
+                <font size="5" color="black" face="Arial">
+                    Флористы готовы собрать для вас цветочную композицию любой сложности в корзине, вазе, коробке, <br />
+                    сундучке или любой предоставленной вами таре. Помимо свежих цветов в нее могут быть включены и <br />
+                    декоративные элементы — различные растения, фрукты, мягкие игрушки. Такая цветочная композиция, <br />
+                    гармонично собранная с учетом правил сочетания цветов и несущая заданную смысловую нагрузку — <br />
+                    всегда уникальный и неповторимый подарок.<br><br>
+                </font>
+            </a>
+        </p>
+    </div>
+
+    
+
+
+
+
+
+
+</body>
+</html>

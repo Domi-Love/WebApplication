@@ -1,0 +1,602 @@
+﻿@model WebApplication.Models.FlowersResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Каталог товаров</title>
+    <style>
+
+        /* Header */
+        .header {
+            width: 100%;
+            padding-top: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: black;
+        }
+
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo {
+            margin-left: 15px;
+            font-size: 50px;
+            color: #fff;
+        }
+
+
+        /* Nav */
+        .nav {
+            align-items: center;
+            font-size: 19px;
+            text-transform: uppercase;
+        }
+
+        .nav__link {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 15px;
+            position: relative;
+            color: #fff;
+            text-decoration: none;
+            transition: color .1s linear;
+        }
+
+            .nav__link:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 5px;
+                background-color: #fce38a;
+                opacity: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1;
+                transition: .1s linear;
+            }
+
+            .nav__link:hover {
+                color: #fce38a;
+            }
+
+
+
+
+        .product-wrapper {
+            display: block;
+            width: 30%;
+            float: left;
+            transition: width .2s;
+            margin: 150px 5px 15px 20px;
+        }
+
+        .product {
+            display: block;
+            border: 1px solid #F06292;
+            border-radius: 3px;
+            position: relative;
+            background: #fff;
+            margin: 20px 20px 20px 20px;
+            text-decoration: none;
+            color: #F50057;
+            z-index: 0;
+            height: 800px;
+        }
+
+        .products {
+            list-style: none;
+            margin: 0 -20px 0 0;
+            padding: 0;
+        }
+
+        .product-photo {
+            position: relative;
+            padding-bottom: 100%;
+            overflow: hidden;
+        }
+        .product-price {
+            color: red;
+            text-decoration: line-through;
+        }
+
+        .product-price-old b,
+        .product-price-old small {
+            color:  black;
+           
+        }
+            .product-photo img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                max-width:100%;
+                max-height: 100%;
+                margin: auto;
+                transition: transform .4s ease-out;
+            }
+
+        .product:hover .product-photo img {
+            transform: scale(1.05);
+        }
+
+        .product p {
+            position: relative;
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.4em;
+            height: 5.6em;
+            overflow: hidden;
+        }
+
+        .product:hover .product-preview {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-buttons-wrap {
+            position: absolute;
+            top: 0;
+            left: -1px;
+            right: -1px;
+            bottom: 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: scaleY(.8);
+            transform-origin: top;
+            transition: transform .2s ease-out;
+            z-index: -1;
+            backface-visibility: hidden;
+        }
+
+            .product-buttons-wrap:before {
+                content: "";
+                float: left;
+                height: 100%;
+                width: 100%;
+            }
+
+        .buttons {
+            position: relative;
+            top: -1px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+            border: 1px solid #56bd4b;
+            border-radius: 3px;
+        }
+        body {
+            background-size: 120% 120%;
+            background-image: url(../../Content/images/16.jpg);
+        }
+       
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">Мир цветов</div>
+
+                <nav class="nav">
+                    <a class="nav__link" href="Index">Главная страница</a>
+                    <a class="nav__link" href="Form">Оформление заказа</a>
+                    <a class="nav__link" href="Bouquets">Каталог товаров</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <ul class="products clearfix">
+        <li class="product-wrapper">  
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/11.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Весеннее солнце"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из:  кустовой хризантемы, статицы, зелени и
+                                упаковки.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                2000 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                           1500 руб.
+                        </font>
+                    </p>
+                </div>
+</a>
+        </li>
+
+
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/22.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Душистое утро"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: роз, кустовых роз,
+                                кустовой хризантемы, статицы, зелени и
+                                упаковки.
+                            </font>
+                        </p>
+
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                2300 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                            1700 руб.
+                        </font>
+                    </p>
+                </div>
+            </a>
+      </li>
+      
+        
+        
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/23.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Лавандовые сны"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: кустовых роз, кустовой хризантемы и упаковки.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                3000 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                           2500 руб.
+                        </font>
+</p>
+                </div>
+            </a>
+        </li>
+        
+        
+        
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/10.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Розовый сад"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: 51 розовых роз Эквадор.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                6000 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                            5500 руб.
+                        </font>
+                    </p>
+
+                </div>
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/24.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Мечта"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: розы, ирисов и упаковки.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                5000 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                           4500 руб.
+                        </font>
+                    </p>
+                </div>
+            </a>
+        </li>
+       
+        
+        
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/26.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Весеннее солнце"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: роз и лилий.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                               3400 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                            3000 руб.
+                        </font>
+                    </p>
+                </div>
+            </a>
+        </li>
+       
+        
+        
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/13.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Дама сердца"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: орхидей, зелени и
+                                упаковки.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                               3000 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                            2500 руб.
+                        </font>
+                    </p>
+                </div>
+            </a>
+        </li>
+       
+        
+        
+        
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/33.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Синняя птица"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: гортензии.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                2500 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                            2000 руб.
+                        </font>
+                    </p>
+                </div>
+            </a>
+        </li>
+
+
+
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div>
+                    <div class="product-photo">
+                        <img src="../../Content/images/28.jpg" alt="">
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <p align="center">
+
+                            <font size="10" color="Black" face="Arial">
+
+                                <TT>Букет "Таинственная незнакомка"</TT>
+                                <br /><br />
+                            </font>
+                        </p>
+
+                        <p align="center">
+                            <font size="5" color="black" face="Arial">
+                                Букет составлен из: роз, кустовых роз, эустомы, зелени и упаковки.
+                            </font>
+                        </p>
+                    </div>
+                    <br />
+                    <div class="product-price">
+                        <p align="center">
+                            <font size="5" face="Arial">
+                                4900 руб.
+                            </font>
+                        </p>
+                    </div>
+                    <p align="center">
+                        <font size="5" face="Arial">
+                            4400 руб.
+                        </font>
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ul>
+   
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+﻿@model WebApplication.Models.FlowersResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Спасибо</title>
+</head>
+<style>
+    body {
+        background-size: 100% 150%;
+        background-image: url(../../Content/images/35.jpg);
+    }
+    /* Header */
+    .header {
+        width: 100%;
+        padding-top: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: black;
+    }
+
+    .header__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__logo {
+        margin-left: 15px;
+        font-size: 50px;
+        color: #fff;
+    }
+
+
+    /* Nav */
+    .nav {
+        align-items: center;
+        font-size: 19px;
+        text-transform: uppercase;
+    }
+
+    .nav__link {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 15px;
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        transition: color .1s linear;
+    }
+
+        .nav__link:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: #fce38a;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            transition: .1s linear;
+        }
+
+        .nav__link:hover {
+            color: #fce38a;
+        }
+    d {
+        padding: 30px;
+    }
+</style>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">Мир цветов</div>
+
+                <nav class="nav">
+                    <a class="nav__link" href="Index">Главная страница</a>
+                    <a class="nav__link" href="Form">Оформление заказа</a>
+                    <a class="nav__link" href="Bouquets">Каталог товаров</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    
+    <d>
+        <br /><br /><br /><br /><br />
+        <font size="5">
+        <p>Наименование товара: @Model.Name</p>
+        <p>Количество: @Model.Quantity</p>
+        <p>ФИО: @Model.Username</p>
+        <p>Телефон: @Model.Phone</p>
+        <p>Email: @Model.Email</p>
+
+
+        <h1>Спасибо, @Model.Username!</h1>
+        @if (Model.WillAttend == true)
+        {
+            @:Будем Вас ждать в нашем магазине!
+        }
+        else
+        {
+            @:Как будет готов заказ, курьер Вам позвонит.
+        }
+            </font>
+    </d>
+    
+</body>
+</html>
